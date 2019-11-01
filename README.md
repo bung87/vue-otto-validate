@@ -9,6 +9,8 @@ import it , use as plugin , show errors when http response errors.
 import Validator,{showErrors} from "vue-otto-validate"
 Vue.use(Validator,{className:"text-danger"})
 axios.post(...).catch(r => {showErrors( r.response.data.errors)});
+// errors object : {fieldName:["message1","message2"...],...}
+// if you using rails you already known
 ```
 add directive `v-validate="{leftOffset:100,topOffset:8}"` among with `v-model` to element.  
 
