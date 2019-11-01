@@ -1,0 +1,51 @@
+{
+  "name": "vue-otto-validate",
+  "version": "1.0.0",
+  "description": "vue-otto-validate",
+  "private": false,
+  "author": "bung87",
+  "license": "MIT",
+  "engines": {
+    "yarn": ">=1.13.0"
+  },
+  "main": "build/vue-otto-validate.cjs.js",
+  "module": "build/vue-otto-validate.js",
+  "browser": "build/vue-otto-validate.umd.js",
+  "scripts": {
+    "start": "rollup -c rollup.config.ts -w",
+    "test": "jest --coverage --coverageDirectory=build/coverage --passWithNoTests",
+    "test:watch": "jest --coverage --coverageDirectory=build/coverage --passWithNoTests --watch",
+    "doc": "typedoc --out build/docs --theme minimal --excludePrivate --excludeExternals --exclude **/*.test.ts --target es6 src",
+    "prebuild": "yarn lint",
+    "build": "rollup -c rollup.config.ts",
+    "postbuild": " yarn test ; yarn doc ;",
+    "lint": "tslint --project ./tsconfig.json"
+  },
+  "types": "build/types/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bung87/vue-otto-validate.git"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@log4js2/core": "^2.0.9",
+    "@types/jest": "^24.0.21",
+    "@types/lodash": "^4.14.144",
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2",
+    "rollup": "^1.26.2",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^6.2.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-internal-external": "^2.0.2",
+    "typescript": "^3.6.4"
+  }
+}
