@@ -16,6 +16,14 @@ only need one attribute format as below
 `v-validate:position.className1.className2=optionsObj`  
 
 __notice__: currently only supports `position = "leftTop"`  
+
+preview:
+
+![preview](./preview.min.png)
+
+results html:
+
+![html](./html.min.png)
 ## build
 
 ```sh
