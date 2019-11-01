@@ -15,7 +15,7 @@
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage --coverageDirectory=build/coverage --passWithNoTests",
     "test:watch": "jest --coverage --coverageDirectory=build/coverage --passWithNoTests --watch",
-    "doc": "typedoc --out build/docs --theme minimal --excludePrivate --excludeExternals --exclude **/*.test.ts --target es6 src",
+    "doc": "typedoc --out build/docs --media media/ --theme minimal --excludePrivate --excludeExternals --exclude **/*.test.ts --target es6 src",
     "prebuild": "yarn lint",
     "build": "rollup -c rollup.config.ts",
     "postbuild": " yarn test ; yarn doc ;",

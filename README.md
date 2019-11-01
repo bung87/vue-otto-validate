@@ -19,11 +19,11 @@ __notice__: currently only supports `position = "leftTop"`
 
 preview:
 
-![preview](./preview.min.png)
+![preview](media/preview.min.png)
 
 results html:
 
-![html](./html.min.png)
+![html](media/html.min.png)
 ## build
 
 ```sh
