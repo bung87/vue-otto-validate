@@ -2,10 +2,7 @@
 import { merge } from "lodash";
 import { VNode } from "vue";
 import { Binding, Directive, Options } from "../types";
-/**
- * @media preview.min.png
- * @media html.min.png
- */
+
 /**
  * Directive default Options.
  */
@@ -110,7 +107,7 @@ export default {
     },
 };
 /**
- *
+ * Usage
  * ```js
  * import Validator,{showErrors} from "vue-otto-validate"
  * axios.post(...).catch(r => {showErrors( r.response.data.errors)});
