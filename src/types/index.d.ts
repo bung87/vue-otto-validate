@@ -5,7 +5,8 @@ declare interface Options {
     className?: string,
     leftOffset?: number,
     position?: string,
-    topOffset?: number
+    topOffset?: number,
+    mode?:string
 }
 declare interface Binding extends DirectiveBinding {
     rawName: string

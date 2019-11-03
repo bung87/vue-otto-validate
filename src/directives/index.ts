@@ -6,8 +6,9 @@ import { Binding, Directive, Options } from "../types";
 /**
  * Directive default Options.
  */
-const defaultOptions = {
+const defaultOptions: Options = {
     leftOffset: 0,
+    mode: undefined,
     position: "leftTop",
     topOffset: 0,
 };
@@ -46,12 +47,13 @@ export const directive: Directive = {
                 div.style.position = "fixed";
                 const rect = el.getBoundingClientRect();
                 div.setAttribute("vue-validate-tip", `vue-validate-tip-${modelBindingKey}`);
+                div.setAttribute("vue-validate-tip-position", `${options.position}`);
                 if (options.className) {
                     div.className = options.className;
                 }
 
                 div.textContent = "tip";
-                if (options.position !== "test") {
+                if (options.mode !== undefined) {
                     document.body.appendChild(div);
                 } else {
                     // tslint:disable-next-line: no-unused-expression
@@ -118,7 +120,7 @@ export default {
  * axios.post(...).catch(r => {showErrors( r.response.data.errors)});
  * ```
  */
-export function showErrors(errors: string[][]) {
+export function showErrors(errors: Record<string, string[]>) {
     for (const key in errors) {
         if (errors.hasOwnProperty(key)) {
             const ele: HTMLElement | null = document.querySelector(`[vue-validate-tip=vue-validate-tip-${key}]`);

@@ -12,11 +12,6 @@ exports.default = {
       password: "",
       password_confirmation: ""
     };
-  },
-  updated() {
-    Validator.showError({
-            "email":["Email already been taken"]
-    })
   }
 };
 </script>
@@ -29,7 +24,7 @@ exports.default = {
         <input
           type="text"
           id="email"
-          v-validate:test.className1="{leftOffset:100,topOffset:8}"
+          v-validate:test.className1="{leftOffset:100,topOffset:8,mode:'test'}"
           v-model="email"
         />
       </div>
@@ -38,7 +33,7 @@ exports.default = {
         <input
           type="password"
           id="password"
-          v-validate:test.className1.className2="{leftOffset:100,topOffset:8}"
+          v-validate:test.className1.className2="{leftOffset:100,topOffset:8,mode:'test'}"
           v-model="password"
         />
       </div>
@@ -47,7 +42,7 @@ exports.default = {
         <input
           type="password_confirmation"
           id="password_confirmation"
-          v-validate:test="{leftOffset:100,topOffset:8}"
+          v-validate:test="{leftOffset:100,topOffset:8,mode:'test'}"
           v-model="password_confirmation"
         />
       </div>

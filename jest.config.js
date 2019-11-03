@@ -20,18 +20,16 @@
 //   ],
 //   "automock": false,
 // };
-// needs for vue-jest
-// vue-template-compiler babel-core babel-plugin-syntax-dynamic-import babel-plugin-dynamic-import-node
+
 module.exports = {
   preset: "ts-jest",
   setupFilesAfterEnv: ["jest-extended"],
   verbose: true,
-  // roots:["<rootDir>/specs"],
+  rootDir: ".",
   "moduleFileExtensions": ["js", "json", "vue", "ts", "tsx", "jsx"],
   "transform": {
     "^.+\\.vue$": "vue-jest",
-    "^.+\\.tsx?$": "ts-jest",
-    // "^.+\\.[t|j]sx?$": "babel-jest"
+    "^.+\\.tsx?$": "ts-jest"
   },
   "moduleNameMapper": {
     "^@/(.*)$": "<rootDir>/src/$1"
