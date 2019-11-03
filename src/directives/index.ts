@@ -51,7 +51,12 @@ export const directive: Directive = {
                 }
 
                 div.textContent = "tip";
-                document.body.append(div);
+                if (options.position !== "test") {
+                    document.body.appendChild(div);
+                } else {
+                    // tslint:disable-next-line: no-unused-expression
+                    el.parentElement && el.parentElement.appendChild(div);
+                }
                 const divRect = div.getBoundingClientRect();
                 div.style.left = `${rect.left + options.leftOffset}px`;
                 div.style.top = `${rect.top - divRect.height - options.topOffset}px`;
