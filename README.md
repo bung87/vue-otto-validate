@@ -1,3 +1,6 @@
+# vue-otto-validate
+[![Build Status](https://travis-ci.org/bung87/vue-otto-validate.svg?branch=master)](https://travis-ci.org/bung87/vue-otto-validate)  
+
 ## Install
 
 ```sh
