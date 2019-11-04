@@ -11,5 +11,4 @@ rollup.config.ts
 .vscode/
 .circleci/
 .yo-rc.json
-.travis.yam
-.yo-rc.json
+.travis.yml
