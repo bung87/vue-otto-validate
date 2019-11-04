@@ -20,11 +20,11 @@
     "doc": "typedoc --out build/docs --media media/ --theme minimal --excludePrivate --excludeExternals --exclude **/*.test.ts --target es6 src",
     "prebuild": "yarn lint",
     "deploy-docs": "ts-node --project ./tsconfig.json tools/gh-pages-publish",
-    "build": "rollup -c rollup.config.ts",
+    "dist": "rollup -c rollup.config.ts",
     "postbuild": " yarn test ; yarn doc ;",
     "lint": "tslint --project ./tsconfig.json"
   },
-  "types": "build/types/src/index.d.ts",
+  "types": "dist/types/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:bung87/vue-otto-validate.git"

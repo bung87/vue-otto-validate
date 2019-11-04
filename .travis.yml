@@ -9,6 +9,8 @@ cache:
   yarn: true
   directories:
   - node_modules
+before_deploy:
+  - yarn dist
 deploy:
   provider: npm
   on:

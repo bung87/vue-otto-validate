@@ -29,10 +29,11 @@ preview:
 results html:
 
 ![html](media/html.min.png)
-## build
+
+## dist
 
 ```sh
-$ yarn build
+$ yarn dist
 ```
 
 ## start and watch
