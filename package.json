@@ -8,9 +8,11 @@
   "engines": {
     "yarn": ">=1.13.0"
   },
-  "main": "build/vue-otto-validate.cjs.js",
-  "module": "build/vue-otto-validate.js",
-  "browser": "build/vue-otto-validate.umd.js",
+  "homepage": "https://github.com/bung87/vue-otto-validate",
+  "files":["dist/*", "src/*"],
+  "main": "dist/vue-otto-validate.cjs.js",
+  "module": "dist/vue-otto-validate.js",
+  "browser": "dist/vue-otto-validate.umd.js",
   "scripts": {
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage --coverageDirectory=build/coverage --passWithNoTests",
