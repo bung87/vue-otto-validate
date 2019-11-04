@@ -5,8 +5,7 @@ declare interface Options {
     className?: string,
     leftOffset?: number,
     position?: string,
-    topOffset?: number,
-    mode?:string
+    topOffset?: number
 }
 declare interface Binding extends DirectiveBinding {
     rawName: string
@@ -28,18 +27,18 @@ declare interface Directive {
     unbind?: DirectiveMethod;
 }
 
-// declare module 'vue/types/vue' {
+declare module 'vue/types/vue' {
 
-//     interface VueConstructor<V extends Vue> {
-//         $validateOptions: object
-//     }
-//     interface Vue {
-//         $validateOptions: object
-//     }
-// }
+    // interface VueConstructor<V extends Vue> {
+    //     $validateOptions: object
+    // }
+    // interface Vue {
+    //     $validateOptions: object
+    // }
+}
 
 declare module 'vue/types/options' {
     interface ComponentOptions<V> {
-        $validateOptions?: string
+        $validateOptions?: object
     }
 }

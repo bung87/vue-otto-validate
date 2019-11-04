@@ -8,7 +8,6 @@ import { Binding, Directive, Options } from "../types";
  */
 const defaultOptions: Options = {
     leftOffset: 0,
-    mode: undefined,
     position: "leftTop",
     topOffset: 0,
 };
@@ -25,14 +24,15 @@ export const directive: Directive = {
         if (binding.rawName.indexOf(".") !== -1) {
             bindOptions.className = binding.rawName.split(".").slice(1).join(" ");
         }
-        if (binding.value.leftOffset) {
-            bindOptions.leftOffset = binding.value.leftOffset;
+        const value = merge({}, binding.value);
+        if (value.leftOffset) {
+            bindOptions.leftOffset = value.leftOffset;
         }
         if (binding.arg) {
             bindOptions.position = binding.arg;
         }
-        if (binding.value.topOffset) {
-            bindOptions.topOffset = binding.value.topOffset;
+        if (value.topOffset) {
+            bindOptions.topOffset = value.topOffset;
         }
         let globalOptions;
         if (vnode.context && vnode.context.$options && vnode.context.$options.$validateOptions) {
@@ -53,7 +53,7 @@ export const directive: Directive = {
                 }
 
                 div.textContent = "tip";
-                if (options.mode !== undefined) {
+                if (value.mode === undefined) {
                     document.body.appendChild(div);
                 } else {
                     // tslint:disable-next-line: no-unused-expression
@@ -87,8 +87,26 @@ export const directive: Directive = {
             }
         }
     },
-    unbind() {
-        document.querySelectorAll("[vue-validate-tip]").forEach((x) => x.remove());
+    unbind(el: HTMLElement, binding: Binding, vnode: VNode, oldVnode: VNode) {
+        if (vnode.context && vnode.context.$options && vnode.context.$options.$validateOptions) {
+            vnode.context.$options.$validateOptions = undefined;
+        }
+        if (vnode.data && vnode.data.directives) {
+            const model = vnode.data.directives.find((x) => x.name === "model");
+            if (model && model.expression) {
+                const modelBindingKey = model.expression;
+                let ele: HTMLElement | null;
+                const value = merge({}, binding.value);
+                if (value.mode === undefined) {
+                    ele = document.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`)
+                } else {
+                    ele = el.parentElement ? el.parentElement.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`) : null;
+                }
+                if (ele) {
+                    ele.remove();
+                }
+            }
+        }
     },
 };
 // tslint:disable-next-line: no-default-export
@@ -107,9 +125,10 @@ export default {
                 this.$options.$validateOptions = options;
             },
             beforeDestory() {
-                delete this.$options.$validateOptions;
+                this.$options.$validateOptions = undefined;
             },
         });
+
         Vue.directive("validate", directive, options);
     },
 };
