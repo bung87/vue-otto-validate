@@ -9,6 +9,7 @@
     "yarn": ">=1.13.0"
   },
   "homepage": "https://github.com/bung87/vue-otto-validate",
+  "keywords": ["vue","validate","directive","typescript"],
   "files":["dist/*", "src/*"],
   "main": "dist/vue-otto-validate.cjs.js",
   "module": "dist/vue-otto-validate.js",
