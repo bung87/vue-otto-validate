@@ -2380,6 +2380,10 @@ img {
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
+			<a href="#vue-otto-validate" id="vue-otto-validate" style="color: inherit; text-decoration: none;">
+				<h1>vue-otto-validate</h1>
+			</a>
+			<p><a href="https://travis-ci.org/bung87/vue-otto-validate"><img src="https://travis-ci.org/bung87/vue-otto-validate.svg?branch=master" alt="Build Status"></a>  </p>
 			<a href="#install" id="install" style="color: inherit; text-decoration: none;">
 				<h2>Install</h2>
 			</a>
@@ -2390,7 +2394,9 @@ img {
 			<p>import it , use as plugin , show errors when http response errors.</p>
 			<pre><code class="language-js"><span class="hljs-keyword">import</span> Validator,{showErrors} <span class="hljs-keyword">from</span> <span class="hljs-string">"vue-otto-validate"</span>
 Vue.use(Validator,{<span class="hljs-attr">className</span>:<span class="hljs-string">"text-danger"</span>})
-axios.post(...).catch(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> {showErrors( r.response.data.errors)});</code></pre>
+axios.post(...).catch(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> {showErrors( r.response.data.errors)});
+<span class="hljs-comment">// errors object : {fieldName:["message1","message2"...],...}</span>
+<span class="hljs-comment">// if you using rails you already known</span></code></pre>
 			<p>add directive <code>v-validate=&quot;{leftOffset:100,topOffset:8}&quot;</code> among with <code>v-model</code> to element.  </p>
 			<p>only need one attribute format as below<br><code>v-validate:position.className1.className2=optionsObj</code>  </p>
 			<p><strong>notice</strong>: currently only supports <code>position = &quot;leftTop&quot;</code>  </p>
