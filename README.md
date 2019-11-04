@@ -4,7 +4,7 @@
 ## Install
 
 ```sh
-$ yarn add bung87/vue-otto-validate#v{%= version %}
+$ yarn add vue-otto-validate
 ```
 ## Usage  
 import it , use as plugin , show errors when http response errors.
