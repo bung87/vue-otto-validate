@@ -1,6 +1,6 @@
 # vue-otto-validate
 [![Build Status](https://travis-ci.org/bung87/vue-otto-validate.svg?branch=master)](https://travis-ci.org/bung87/vue-otto-validate)  [![Total alerts](https://img.shields.io/lgtm/alerts/g/bung87/vue-otto-validate.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bung87/vue-otto-validate/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/bung87/vue-otto-validate.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bung87/vue-otto-validate/context:javascript) [![Npm Version](https://badgen.net/npm/v/vue-otto-validate)](https://www.npmjs.com/package/vue-otto-validate)  ![npm: total downloads](https://badgen.net/npm/dt/vue-otto-validate)![Types](https://badgen.net/npm/types/vue-otto-validate) ![Dep](https://badgen.net/david/dep/bung87/vue-otto-validate) ![license](https://badgen.net/npm/license/vue-otto-validate)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/bung87/vue-otto-validate.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bung87/vue-otto-validate/context:javascript) [![Npm Version](https://badgen.net/npm/v/vue-otto-validate)](https://www.npmjs.com/package/vue-otto-validate)  ![npm: total downloads](https://badgen.net/npm/dt/vue-otto-validate) ![Types](https://badgen.net/npm/types/vue-otto-validate) ![Dep](https://badgen.net/david/dep/bung87/vue-otto-validate) ![license](https://badgen.net/npm/license/vue-otto-validate)
 
 ## Install
 
