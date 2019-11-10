@@ -9,6 +9,7 @@ import { Binding, Directive, Options } from "../types";
 const defaultOptions: Options = {
     leftOffset: 0,
     position: "leftTop",
+    responsive: false,
     topOffset: 0,
 };
 /**
@@ -63,10 +64,17 @@ export const directive: Directive = {
                 div.style.left = `${rect.left + options.leftOffset}px`;
                 div.style.top = `${rect.top - divRect.height - options.topOffset}px`;
                 div.style.display = "none";
+                if (options.responsive) {
+                    window.addEventListener("resize", e => {
+                        const rect1 = el.getBoundingClientRect();
+                        const divRect1 = div.getBoundingClientRect();
+                        div.style.left = `${rect1.left + options.leftOffset}px`;
+                        div.style.top = `${rect1.top - divRect1.height - options.topOffset}px`;
+                    });
+                }
             }
 
         }
-
     },
     componentUpdated(el: HTMLElement, binding: Binding, vnode: VNode, oldVnode: VNode) {
         if (vnode.data && vnode.data.directives && oldVnode.data && oldVnode.data.directives) {
@@ -98,7 +106,7 @@ export const directive: Directive = {
                 let ele: HTMLElement | null;
                 const value = merge({}, binding.value);
                 if (value.mode === undefined) {
-                    ele = document.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`)
+                    ele = document.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`);
                 } else {
                     ele = el.parentElement ? el.parentElement.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`) : null;
                 }
