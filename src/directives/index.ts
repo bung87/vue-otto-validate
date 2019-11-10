@@ -73,7 +73,8 @@ export const directive: Directive = {
                         // div.style.left = `${rect1.left + options.leftOffset}px`;
                         // div.style.top = `${rect1.top - divRect1.height - options.topOffset}px`;
                         const translate = options.translate === "3d" ? "translate3d" : "translate";
-                        div.style.transform = `${translate}(${Math.floor(rect1.left + options.leftOffset - left) }px, ${Math.floor(rect1.top - div.getBoundingClientRect().height - options.topOffset - top)}px, 0)`;
+                        const suffix = options.translate === "3d" ? ", 0" : "";
+                        div.style.transform = `${translate}(${Math.floor(rect1.left + options.leftOffset - left) }px, ${Math.floor(rect1.top - div.getBoundingClientRect().height - options.topOffset - top)}px${suffix})`;
                     }, 100));
                 }
             }
