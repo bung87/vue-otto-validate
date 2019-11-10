@@ -6,6 +6,7 @@ declare interface Options {
     leftOffset?: number,
     position?: string,
     topOffset?: number,
+    translate?: string,
     responsive?:boolean,
 }
 declare interface Binding extends DirectiveBinding {

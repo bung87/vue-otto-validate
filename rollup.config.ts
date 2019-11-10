@@ -5,6 +5,7 @@ import filesize from "rollup-plugin-filesize";
 import resolve from "rollup-plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import pkg from "./package.json";
+import babel from "rollup-plugin-babel";
 
 const moduleVersion = "v" + pkg.version;
 const nodePlugins = [
@@ -12,6 +13,9 @@ const nodePlugins = [
     // string({ include: '**/*.md' }),
     typescript({ useTsconfigDeclarationDir: true }),
     commonjs({ include: "node_modules/**" }),
+    babel({
+        exclude: "node_modules/**"
+      }),
 ];
 
 const banner = "/* " + pkg.name + " " + moduleVersion + " */";

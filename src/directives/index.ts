@@ -1,5 +1,5 @@
 
-import { merge } from "lodash";
+import { merge, throttle } from "lodash";
 import { VNode } from "vue";
 import { Binding, Directive, Options } from "../types";
 
@@ -11,6 +11,7 @@ const defaultOptions: Options = {
     position: "leftTop",
     responsive: false,
     topOffset: 0,
+    translate: "3d",
 };
 /**
  * Object implemented Directive interfaces.
@@ -61,16 +62,19 @@ export const directive: Directive = {
                     el.parentElement && el.parentElement.appendChild(div);
                 }
                 const divRect = div.getBoundingClientRect();
-                div.style.left = `${rect.left + options.leftOffset}px`;
-                div.style.top = `${rect.top - divRect.height - options.topOffset}px`;
+                const left = rect.left + options.leftOffset;
+                const top = rect.top - divRect.height - options.topOffset;
+                div.style.left = `${left}px`;
+                div.style.top = `${top}px`;
                 div.style.display = "none";
                 if (options.responsive) {
-                    window.addEventListener("resize", e => {
+                    window.addEventListener("resize", throttle(() => {
                         const rect1 = el.getBoundingClientRect();
-                        const divRect1 = div.getBoundingClientRect();
-                        div.style.left = `${rect1.left + options.leftOffset}px`;
-                        div.style.top = `${rect1.top - divRect1.height - options.topOffset}px`;
-                    });
+                        // div.style.left = `${rect1.left + options.leftOffset}px`;
+                        // div.style.top = `${rect1.top - divRect1.height - options.topOffset}px`;
+                        const translate = options.translate === "3d" ? "translate3d" : "translate";
+                        div.style.transform = `${translate}(${Math.floor(rect1.left + options.leftOffset - left) }px, ${Math.floor(rect1.top - div.getBoundingClientRect().height - options.topOffset - top)}px, 0)`;
+                    }, 100));
                 }
             }
 
