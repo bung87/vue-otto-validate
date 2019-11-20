@@ -21,8 +21,6 @@ add directive `v-validate="{leftOffset:100,topOffset:8}"` among with `v-model` t
 only need one attribute format as below  
 `v-validate:position.className1.className2=optionsObj`  
 
-__notice__: currently only supports `position = "leftTop"`  
-
 preview:
 
 ![preview](media/preview.min.png)
@@ -30,6 +28,16 @@ preview:
 results html:
 
 ![html](media/html.min.png)
+
+## options  
+| Option | Type | Default | Description |
+| - | - | - | ----------------------------------------------------|
+| responsive | Boolean | false | tip responsive to field ? |
+| translate | String | "3d" | `"3d"` or `"2d"` responsive using "translate3d" or translate 2d |
+| position | String | "leftTop" | currently only supports `"leftTop"` |
+| leftOffset | Number | 0 | left offset relative to field's left |
+| topOffset | Number | 0 | top offset above field |
+
 
 ## dist
 

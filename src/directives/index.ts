@@ -55,12 +55,7 @@ export const directive: Directive = {
                 }
 
                 div.textContent = "tip";
-                if (value.mode === undefined) {
-                    document.body.appendChild(div);
-                } else {
-                    // tslint:disable-next-line: no-unused-expression
-                    el.parentElement && el.parentElement.appendChild(div);
-                }
+                document.body.appendChild(div);
                 const divRect = div.getBoundingClientRect();
                 const left = rect.left + options.leftOffset;
                 const top = rect.top - divRect.height - options.topOffset;
@@ -74,7 +69,7 @@ export const directive: Directive = {
                         // div.style.top = `${rect1.top - divRect1.height - options.topOffset}px`;
                         const translate = options.translate === "3d" ? "translate3d" : "translate";
                         const suffix = options.translate === "3d" ? ", 0" : "";
-                        div.style.transform = `${translate}(${Math.floor(rect1.left + options.leftOffset - left) }px, ${Math.floor(rect1.top - div.getBoundingClientRect().height - options.topOffset - top)}px${suffix})`;
+                        div.style.transform = `${translate}(${Math.floor(rect1.left + options.leftOffset - left)}px, ${Math.floor(rect1.top - div.getBoundingClientRect().height - options.topOffset - top)}px${suffix})`;
                     }, 100));
                 }
             }
@@ -109,12 +104,7 @@ export const directive: Directive = {
             if (model && model.expression) {
                 const modelBindingKey = model.expression;
                 let ele: HTMLElement | null;
-                const value = merge({}, binding.value);
-                if (value.mode === undefined) {
-                    ele = document.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`);
-                } else {
-                    ele = el.parentElement ? el.parentElement.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`) : null;
-                }
+                ele = document.querySelector(`[vue-validate-tip=vue-validate-tip-${modelBindingKey}]`);
                 if (ele) {
                     ele.remove();
                 }

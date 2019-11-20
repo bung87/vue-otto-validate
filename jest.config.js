@@ -24,6 +24,13 @@
 module.exports = {
   preset: "ts-jest",
   setupFilesAfterEnv: ["jest-extended"],
+  globals: {
+    'ts-jest': {
+      diagnostics: {
+        ignoreCodes: ["TS2531"]
+      }
+    }
+  },
   verbose: true,
   rootDir: ".",
   "moduleFileExtensions": ["js", "json", "vue", "ts", "tsx", "jsx"],
